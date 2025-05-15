@@ -1,0 +1,26 @@
+{
+  "name": "simple-inventory-app",
+  "version": "1.0.0",
+  "description": "Simple-Inventory-App",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "devStart": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maiker260/Simple-Inventory-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Maiker260/Simple-Inventory-App/issues"
+  },
+  "homepage": "https://github.com/Maiker260/Simple-Inventory-App#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
+}
