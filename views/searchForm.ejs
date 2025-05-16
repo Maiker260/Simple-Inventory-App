@@ -26,17 +26,19 @@
         <input type="submit" value="Submit">
     </form>
     <h2>Results:</h2>
-    <ul>
-        <% if (results && results.data) { %>
+    <% if (results && results.data) { %>
+        <ul>
             <% results.data.forEach(item=> { %>
                 <li>
                     <%= item.node.title %>
+                        <img src="<%=item.node.main_picture.medium %>" alt="image" srcset="">
                 </li>
                 <% }); %>
                     <% } else { %>
+
                         <li>No results found</li>
                         <% } %>
-    </ul>
+        </ul>
 
 </body>
 

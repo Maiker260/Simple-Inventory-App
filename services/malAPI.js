@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export async function searchSeries(query, type, items) {
-    const url = `https://api.myanimelist.net/v2/${type}?q=${encodeURIComponent(query)}&limit=${Number(items)}`
+    const url = `https://api.myanimelist.net/v2/${type}?q=${encodeURIComponent(query)}&limit=${items}`
 
     try {
         const response = await fetch(url, {

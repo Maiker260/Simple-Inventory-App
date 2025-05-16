@@ -7,18 +7,17 @@ router.get("/", async (req, res) => {
     const { search, type, items } = req.query;
 
     if (!search) {
-        res.render("searchForm")
+        return res.render("searchForm", { results: null });
     }
 
-    // try {
-    //     const results = await searchSeries(type, search, items);
+    try {
+        const results = await searchSeries(search, type, items);
+        res.render("searchForm", { results });
 
-    //     res.render("searchForm", { results });
-
-    // } catch (error) {
-    //     console.error(error);
-    //     res.status(500).send("Error retrieving results");
-    // }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Error retrieving results");
+    }
 });
 
 export default router;
