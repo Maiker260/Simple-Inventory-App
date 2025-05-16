@@ -3,7 +3,7 @@ import path from "node:path";
 import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import indexRouter from "./routes/main.js";
-import searchRouter from "./routes/searchpage.js";
+import searchRouter from "./routes/searchPage.js";
 
 const app = express();
 
