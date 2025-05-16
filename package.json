@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Simple-Inventory-App",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "devStart": "nodemon index.js"
   },
@@ -18,9 +17,13 @@
     "url": "https://github.com/Maiker260/Simple-Inventory-App/issues"
   },
   "homepage": "https://github.com/Maiker260/Simple-Inventory-App#readme",
+  "type": "module",
   "dependencies": {
+    "dotenv": "^16.5.0",
     "ejs": "^3.1.10",
-    "express": "^5.1.0",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.10"
   }
 }

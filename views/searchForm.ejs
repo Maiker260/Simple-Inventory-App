@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+</head>
+
+<body>
+    <h1>Search Series:</h1>
+    <form action="/search" method="get">
+        <label for="search">
+            Search:
+            <input type="text" name="search">
+        </label>
+        <select name="type">
+            <option value="anime" selected>anime</option>
+            <option value="manga">manga</option>
+        </select>
+        <select name="items">
+            <option value="1">1</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+    <h2>Results:</h2>
+    <ul>
+        <% if (results && results.data) { %>
+            <% results.data.forEach(item=> { %>
+                <li>
+                    <%= item.node.title %>
+                </li>
+                <% }); %>
+                    <% } else { %>
+                        <li>No results found</li>
+                        <% } %>
+    </ul>
+
+</body>
+
+</html>
