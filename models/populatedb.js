@@ -1,9 +1,6 @@
 #! /usr/bin/env node
 
-import dotenv from "dotenv"
 import { dbQuery } from "./dbQuery.js";
-
-dotenv.config();
 
 const SQL = `
     CREATE TABLE IF NOT EXISTS media (
@@ -43,9 +40,9 @@ const DUMMY_DATA = `
 async function setupDatabase() {
     try {
         console.log("Creating tables...");
-        await dbQuery(SQL, true);
+        await dbQuery(SQL);
         console.log("Inserting dummy data...");
-        await dbQuery(DUMMY_DATA, true);
+        await dbQuery(DUMMY_DATA);
         console.log("Database setup complete.");
     } catch (err) {
         console.error("Error setting up database:", err);

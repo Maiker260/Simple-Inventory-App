@@ -9,6 +9,19 @@
 
 <body>
     <h1>Manga Page</h1>
+    <% data.forEach(item=> { %>
+        <ul>
+            <li>Title: <%= item.title %>
+            </li>
+            <li>Description: <%= item.description %>
+            </li>
+            <img src="<%= item.image_url %>" alt="Cover">
+            <li>Chapters: <%= item.chapters %>
+            </li>
+            <li>Added by: <%= item.username %>
+            </li>
+        </ul>
+        <%}); %>
 </body>
 
 </html>
