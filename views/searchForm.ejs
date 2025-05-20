@@ -26,12 +26,16 @@
         <input type="submit" value="Submit">
     </form>
     <h2>Results:</h2>
-    <% if (results && results.data) { %>
+    <% if (results) { %>
         <ul>
-            <% results.data.forEach(item=> { %>
-                <li>
-                    <%= item.node.title %>
-                        <img src="<%=item.node.main_picture.medium %>" alt="image" srcset="">
+            <% results.forEach(item=> { %>
+                <li id="item-<%= item.id %>">
+                    <%= item.title %>
+                        <img src="<%= item.main_picture.medium %>" alt="image">
+                        <button class="add-button" data-series-id="<%= item.id %>" data-series-title="<%= item.title %>"
+                            data-series-type="<%= type %>">
+                            Add
+                        </button>
                 </li>
                 <% }); %>
                     <% } else { %>
@@ -39,7 +43,7 @@
                         <li>No results found</li>
                         <% } %>
         </ul>
-
+        <script src="/js/addButtonHandler.js"></script>
 </body>
 
 </html>

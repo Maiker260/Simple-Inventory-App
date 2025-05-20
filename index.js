@@ -6,6 +6,7 @@ import indexRouter from "./routes/main.js";
 import searchRouter from "./routes/searchPage.js";
 import animeRouter from "./routes/anime.js";
 import mangaRouter from "./routes/manga.js";
+import addSeriesRouter from "./routes/addSeries.js";
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use("/", indexRouter);
 app.use("/search", searchRouter);
 app.use("/anime", animeRouter);
 app.use("/manga", mangaRouter);
+app.use("/add-to-database", addSeriesRouter);
 
 app.listen(3000, () => {
     console.log("Server Running!!");

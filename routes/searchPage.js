@@ -1,5 +1,5 @@
 import express from "express";
-import { searchSeries } from "../services/malAPI.js";
+import { searchSeries, getSeriesDetails } from "../services/malAPI.js";
 
 const router = express.Router();
 
@@ -11,11 +11,24 @@ router.get("/", async (req, res) => {
     }
 
     try {
-        const results = await searchSeries(search, type, items);
-        res.render("searchForm", { results });
+        const searchResults = await searchSeries(search, type, items);
+        if (searchResults?.data?.length > 0) {
+            const promises = searchResults.data.map(item => {
+                const itemId = item.node.id;
+                return getSeriesDetails(type, itemId);
+            });
 
-    } catch (error) {
-        console.error(error);
+            const results = await Promise.all(promises);
+            res.render('searchForm', { results, type });
+
+        } else {
+            console.log("No Results Found");
+        };
+
+
+
+    } catch (err) {
+        console.error(err);
         res.status(500).send("Error retrieving results");
     }
 });
