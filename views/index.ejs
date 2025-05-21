@@ -4,18 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anime Inventory App</title>
+    <title>Series Recomended</title>
+    <link rel="stylesheet" href="/css/index.css" type="text/css">
 </head>
 
 <body>
-    <h1>My Inventory App</h1>
-    <h3><a href="/anime">Anime: </a>
-        <%= animeData %>
-    </h3>
-    <h3><a href="/manga">Manga: </a>
-        <%= mangaData %>
-    </h3>
-    <a href="/search">Search</a>
+    <main class="main_container flex">
+        <section class="content_container flex">
+            <h1 class="main_title">Series Recommended</h1>
+            <article class="recomendations_container flex">
+                <a href="/anime" class="recomendations flex">
+                    <h3 class="recomendations_title">Anime</h3>
+                    <p class="recomendations_number">
+                        <%= animeData %>
+                    </p>
+                </a>
+                <a href="/manga" class="recomendations flex">
+                    <h3 class="recomendations_title">Anime</h3>
+                    <p class="recomendations_number">
+                        <%= animeData %>
+                    </p>
+                </a>
+            </article>
+            <a href="/search">Search</a>
+        </section>
+    </main>
 </body>
 
 </html>

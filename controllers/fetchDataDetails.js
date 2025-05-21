@@ -1,6 +1,6 @@
 import { getSeriesDetails } from "../services/malAPI.js";
 
-export default async function fetchData(type, id) {
+export default async function fetchDataDetails(type, id) {
     try {
         const response = await getSeriesDetails(type, id);
 

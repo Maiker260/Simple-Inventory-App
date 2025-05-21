@@ -20,7 +20,7 @@
         </select>
         <select name="items">
             <option value="1">1</option>
-            <option value="5">5</option>
+            <option value="5" selected>5</option>
             <option value="10">10</option>
         </select>
         <input type="submit" value="Submit">
@@ -29,11 +29,11 @@
     <% if (results) { %>
         <ul>
             <% results.forEach(item=> { %>
-                <li id="item-<%= item.id %>">
-                    <%= item.title %>
-                        <img src="<%= item.main_picture.medium %>" alt="image">
-                        <button class="add-button" data-series-id="<%= item.id %>" data-series-title="<%= item.title %>"
-                            data-series-type="<%= type %>">
+                <li id="item-<%= item.node.id %>">
+                    <%= item.node.title %>
+                        <img src="<%= item.node.main_picture.medium %>" alt="image">
+                        <button class="add-button" data-series-id="<%= item.node.id %>"
+                            data-series-title="<%= item.node.title %>" data-series-type="<%= type %>">
                             Add
                         </button>
                 </li>
