@@ -10,6 +10,8 @@ const query = `
         media.item_id,
         media.description,
         media.image_url,
+        media.status,
+        media.genres,
         media.episodes,
         media.chapters
     FROM list
@@ -26,4 +28,4 @@ router.get("/", async (req, res) => {
     }
 });
 
-export default router
+export default router;

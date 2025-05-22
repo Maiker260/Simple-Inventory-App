@@ -1,27 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Anime Recomendations</title>
+        <link rel="stylesheet" href="/css/listsPage.css" />
+        <link rel="stylesheet" href="/css/shared.css" />
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anime Recomendations</title>
-</head>
-
-<body>
-    <h1>Anime Recomendations</h1>
-    <% data.forEach(item=> { %>
-        <ul>
-            <li>Title: <%= item.title %>
-            </li>
-            <li>Description: <%= item.description %>
-            </li>
-            <img src="<%= item.image_url %>" alt="Cover">
-            <li>Episodes: <%= item.episodes %>
-            </li>
-            <li>Added by: <%= item.username %>
-            </li>
-        </ul>
-        <%}); %>
-</body>
-
+    <body>
+        <div class="main_container flex">
+            <header class="main_title_container">
+                <h1 class="main_title">Anime Recomendations</h1>
+            </header>
+            <main class="content_container flex">
+                <% data.forEach(item => { %>
+                    <ul class="item_container flex">
+                        <li class="item_main_title"><%= item.title %></li>
+                        <img
+                            src="<%= item.image_url %>"
+                            alt="Cover"
+                            class="item_image"
+                        />
+                        <li class="item_description flex">
+                            <p class="item_sub_content">
+                                <%- item.description.replace(/\n/g, '<br>') %>
+                            </p>
+                        </li>
+                        <li class="item_epis_chap">
+                            <p class="item_sub_title">
+                                Episodes:
+                                <span class="item_sub_content">
+                                    <%= item.episodes %>
+                                </span>
+                            </p>
+                        </li>
+                        <li class="item_epis_chap">
+                            <p class="item_sub_title">
+                                Status:
+                                <span class="item_sub_content">
+                                    <%= item.status.replace(/_/g, ' ').replace(/\b\w/g, c=> c.toUpperCase()) %>
+                                </span>
+                            </p>
+                        </li>
+                        <li class="item_epis_chap">
+                            <p class="item_sub_title">
+                                Genres:
+                                <span class="item_sub_content">
+                                    <%= item.genres %>
+                                </span>
+                            </p>
+                        </li>
+                        <li class="item_user">
+                            <p class="item_sub_title">
+                                Recommended by:
+                                <span class="item_sub_content">
+                                    <%= item.username %>
+                                </span>
+                            </p>
+                        </li>
+                    </ul>
+                <%}); %>
+            </main>
+        </div>
+    </body>
 </html>

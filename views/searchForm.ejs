@@ -5,45 +5,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search</title>
+    <link rel="stylesheet" href="/css/searchPage.css">
+    <link rel="stylesheet" href="/css/shared.css">
 </head>
 
 <body>
-    <h1>Search Series:</h1>
-    <form action="/search" method="get">
-        <label for="search">
-            Search:
-            <input type="text" name="search">
-        </label>
-        <select name="type">
-            <option value="anime" selected>anime</option>
-            <option value="manga">manga</option>
-        </select>
-        <select name="items">
-            <option value="1">1</option>
-            <option value="5" selected>5</option>
-            <option value="10">10</option>
-        </select>
-        <input type="submit" value="Submit">
-    </form>
-    <h2>Results:</h2>
-    <% if (results) { %>
-        <ul>
-            <% results.forEach(item=> { %>
-                <li id="item-<%= item.node.id %>">
-                    <%= item.node.title %>
-                        <img src="<%= item.node.main_picture.medium %>" alt="image">
-                        <button class="add-button" data-series-id="<%= item.node.id %>"
-                            data-series-title="<%= item.node.title %>" data-series-type="<%= type %>">
-                            Add
-                        </button>
-                </li>
-                <% }); %>
-                    <% } else { %>
-
-                        <li>No results found</li>
-                        <% } %>
-        </ul>
-        <script src="/js/addButtonHandler.js"></script>
+    <div class="main_container flex">
+        <header class="main_title_container flex">
+            <h1 class="main_title">Search Series:</h1>
+        </header>
+        <form action="/search" method="get" class="search_form">
+            <label for="search">
+                Search:
+            </label>
+            <input type="text" name="search" class="search_bar">
+            <select name="type">
+                <option value="anime" selected>anime</option>
+                <option value="manga">manga</option>
+            </select>
+            <select name="items">
+                <option value="1">1</option>
+                <option value="5" selected>5</option>
+                <option value="10">10</option>
+            </select>
+            <input type="submit" value="Submit" class="submit_btn">
+        </form>
+        <main class="results_container flex">
+            <h2>Results:</h2>
+            <section class="content_container grid">
+                <% if (results) { %>
+                    <% results.forEach(item => { %>
+                        <ul class="item_container flex">
+                            <div class="title_image_container">
+                                <li id="item-<%= item.node.id %>" class="item_main_title">
+                                    <%= item.node.title %>
+                                </li>
+                                <img
+                                    src="<%= item.node.main_picture.medium %>"
+                                    alt="Cover"
+                                    class="item_image"
+                                />
+                            </div>
+                            <button class="add_button" data-series-id="<%= item.node.id %>" data-series-title="<%= item.node.title %>" data-series-type="<%= type %>">
+                                Add
+                            </button>
+                        </ul>
+                    <% }); %>
+                <% }%>
+            </section>
+        </main>
+    </div>
+    <script src="/js/addButtonHandler.js"></script>
 </body>
 
 </html>

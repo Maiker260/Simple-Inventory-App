@@ -1,19 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const buttons = document.querySelectorAll(".add-button");
+    const buttons = document.querySelectorAll(".add_button");
 
-    buttons.forEach(button => {
+    buttons.forEach((button) => {
         button.addEventListener("click", async function (event) {
             event.preventDefault();
             const button = event.currentTarget;
             const { seriesId, seriesType } = button.dataset;
 
             try {
-                const response = await fetch('/add-to-database', {
-                    method: 'POST',
+                const response = await fetch("/add-to-database", {
+                    method: "POST",
                     headers: {
-                        'Content-Type': 'application/json'
+                        "Content-Type": "application/json",
                     },
-                    body: JSON.stringify({ seriesId, seriesType })
+                    body: JSON.stringify({ seriesId, seriesType }),
                 });
 
                 const result = await response.json();
@@ -26,9 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 } else {
                     alert("Error: " + result.error);
                 }
-
             } catch (error) {
-                console.error('Error:', error);
+                console.error("Error:", error);
                 alert("Something went wrong.");
             }
         });

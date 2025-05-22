@@ -1,34 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Series Recomended</title>
+        <link rel="stylesheet" href="/css/index.css" />
+        <link rel="stylesheet" href="/css/shared.css" />
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Series Recomended</title>
-    <link rel="stylesheet" href="/css/index.css" type="text/css">
-</head>
-
-<body>
-    <main class="main_container flex">
-        <section class="content_container flex">
-            <h1 class="main_title">Series Recommended</h1>
-            <article class="recomendations_container flex">
-                <a href="/anime" class="recomendations flex">
-                    <h3 class="recomendations_title">Anime</h3>
-                    <p class="recomendations_number">
-                        <%= animeData %>
-                    </p>
-                </a>
-                <a href="/manga" class="recomendations flex">
-                    <h3 class="recomendations_title">Anime</h3>
-                    <p class="recomendations_number">
-                        <%= animeData %>
-                    </p>
-                </a>
-            </article>
-            <a href="/search">Search</a>
-        </section>
-    </main>
-</body>
-
+    <body>
+        <main class="main_container flex">
+            <section class="content_container flex">
+                <header class="main_title_container">
+                    <h1 class="main_title">Series Recommended</h1>
+                </header>
+                <article class="recomendations_container flex">
+                    <a href="/anime" class="recomendations flex">
+                        <h3 class="recomendations_content recomendations_title">
+                            Anime
+                        </h3>
+                        <p class="recomendations_content recomendations_number">
+                            <%= animeData ? animeData : 0 %>
+                        </p>
+                    </a>
+                    <a href="/manga" class="recomendations flex">
+                        <h3 class="recomendations_content recomendations_title">
+                            Manga
+                        </h3>
+                        <p class="recomendations_content recomendations_number">
+                            <%= mangaData ? mangaData : 0 %>
+                        </p>
+                    </a>
+                </article>
+                <div class="search_btn_container flex">
+                    <a href="/search" class="search_btn">Recommend</a>
+                </div>
+            </section>
+        </main>
+    </body>
 </html>

@@ -10,6 +10,8 @@ const query = `
         media.item_id,
         media.description,
         media.image_url,
+        media.status,
+        media.genres,
         media.chapters
     FROM list
     JOIN media ON list.media_id = media.id
@@ -25,4 +27,4 @@ router.get("/", async (req, res) => {
     }
 });
 
-export default router
+export default router;
