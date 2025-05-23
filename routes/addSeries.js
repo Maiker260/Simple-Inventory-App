@@ -7,7 +7,13 @@ const router = express.Router();
 
 router.post("/", async (req, res) => {
     const { seriesId, seriesType } = req.body;
+
     const itemExists = await isItemOnDB(seriesId, seriesType);
+
+    if (itemExists) {
+        res.json({ success: true });
+        return;
+    }
 
     const {
         id,
@@ -23,11 +29,6 @@ router.post("/", async (req, res) => {
     const genresFormatted = genres.map((genre) => genre.name).join(", ");
 
     try {
-        if (itemExists) {
-            res.json({ success: true });
-            return;
-        }
-
         const mediaInsertResult = await dbQuery(
             `INSERT INTO media (type, title, item_id, description, image_url, status, genres, episodes, chapters) 
             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) 
@@ -37,7 +38,7 @@ router.post("/", async (req, res) => {
                 title,
                 id,
                 synopsis,
-                main_picture.medium,
+                main_picture.large,
                 status,
                 genresFormatted,
                 num_episodes,

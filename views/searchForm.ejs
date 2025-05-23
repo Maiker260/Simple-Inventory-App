@@ -12,18 +12,20 @@
 <body>
     <div class="main_container flex">
         <header class="main_title_container flex">
-            <h1 class="main_title">Search Series:</h1>
+            <h1 class="main_title">Search</h1>
         </header>
-        <form action="/search" method="get" class="search_form">
-            <label for="search">
-                Search:
-            </label>
-            <input type="text" name="search" class="search_bar">
-            <select name="type">
-                <option value="anime" selected>anime</option>
-                <option value="manga">manga</option>
+        <form action="/search" method="get" class="search_form flex">
+            <div class="search_bar_container flex">
+                <label for="search" class="search_bar_title">
+                    Name:
+                </label>
+                <input type="text" name="search" class="search_bar">
+            </div>
+            <select name="type" class="type_items_options">
+                <option value="anime" selected>Anime</option>
+                <option value="manga">Manga</option>
             </select>
-            <select name="items">
+            <select name="items" class="type_items_options">
                 <option value="1">1</option>
                 <option value="5" selected>5</option>
                 <option value="10">10</option>
@@ -31,15 +33,17 @@
             <input type="submit" value="Submit" class="submit_btn">
         </form>
         <main class="results_container flex">
-            <h2>Results:</h2>
+            <h2 class="results_title">Results:</h2>
             <section class="content_container grid">
                 <% if (results) { %>
                     <% results.forEach(item => { %>
                         <ul class="item_container flex">
                             <div class="title_image_container">
-                                <li id="item-<%= item.node.id %>" class="item_main_title">
+                                <li id="item-<%= item.node.id %>" class="item_main_title" title="<%= item.node.title %>">
                                     <%= item.node.title %>
                                 </li>
+                            </div>
+                            <div class="item_image_container">
                                 <img
                                     src="<%= item.node.main_picture.medium %>"
                                     alt="Cover"
