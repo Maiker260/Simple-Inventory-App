@@ -9,6 +9,16 @@
 
 .main_title {
     font-size: 2.5rem;
+    width: fit-content;
+    cursor: pointer;
+}
+
+a,
+a:visited {
+    width: 100%;
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--main-text-color);
 }
 
 .search_form {
